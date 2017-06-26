@@ -54,7 +54,7 @@ final class GDO_Category extends GDO_Select
 	
 	public function categoryChoices()
 	{
-		return GWF_Category::all();
+		return GWF_Category::table()->all();
 	}
 	
 }

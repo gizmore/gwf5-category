@@ -31,7 +31,7 @@ final class GWF_Category extends GWF_Tree
 	#############
 	### Cache ###
 	#############
-	public static function all()
+	public function all()
 	{
 		if (!($cache = GDOCache::get('gwf_category')))
 		{
