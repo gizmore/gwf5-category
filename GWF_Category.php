@@ -31,11 +31,16 @@ final class GWF_Category extends GWF_Tree
 	#############
 	### Cache ###
 	#############
+	public function rebuildFullTree()
+	{
+		GDOCache::unset('gwf_category');
+		parent::rebuildFullTree();
+	}
 	public function all()
 	{
 		if (!($cache = GDOCache::get('gwf_category')))
 		{
-			$cache = self::table()->select('*')->exec()->fetchAllArray2dObject();
+			$cache = self::table()->select('*')->order('cat_left')->exec()->fetchAllArray2dObject();
 			GDOCache::set('gwf_category', $cache);
 		}
 		return $cache;
@@ -48,5 +53,9 @@ final class GWF_Category extends GWF_Tree
 	{
 		return GDO_Category::make('cat')->gdo($this)->renderCell();
 	}
-	
+	public function renderChoice()
+	{
+		return GDO_Category::make('cat')->gdo($this)->renderChoice();
+		
+	}
 }

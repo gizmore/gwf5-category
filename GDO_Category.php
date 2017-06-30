@@ -33,6 +33,11 @@ final class GDO_Category extends GDO_Select
 		return GWF_Template::modulePHP('Category', 'cell/category.php', ['field'=>$this]);
 	}
 	
+	public function renderChoice()
+	{
+		return GWF_Template::modulePHP('Category', 'choice/category.php', ['field'=>$this]);
+	}
+
 	public function render()
 	{
 		if ($this->completionURL)
