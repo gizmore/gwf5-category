@@ -1,4 +1,10 @@
 <?php $field instanceof GDO_Category; ?>
 <?php
-$category = $field->getCategory();
-echo $category->displayName();
+if ($category = $field->getCategory())
+{
+	echo $category->displayName();
+}
+else
+{
+	l('no_category');
+}

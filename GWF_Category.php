@@ -25,7 +25,7 @@ final class GWF_Category extends GWF_Tree
 	### Getter ###
 	##############
 	public function getName() { return $this->getVar('cat_name'); }
-	public function displayName() { return $this->getName(); }
+	public function displayName() { return htmle($this->getName()); }
 	public function href_edit() { return href('Category', 'Edit', '&id='.$this->getID()); }
 
 	#############
