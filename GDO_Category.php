@@ -13,6 +13,7 @@ final class GDO_Category extends GDO_Select
 	public function __construct()
 	{
 		$this->table(GWF_Category::table());
+		$this->emptyChoice('no_category');
 	}
 	
 	/**
@@ -53,9 +54,7 @@ final class GDO_Category extends GDO_Select
 	
 	public function validate($value)
 	{
-		var_dump($value);
 		$this->choices($this->categoryChoices());
-		var_dump($this->choices);
 		return parent::validate($value);
 	}
 	
